@@ -22,7 +22,7 @@ app.use(cors({origin:allowedOrigins,credentials:true}))
 
 //api endpoints
 app.use('/contact',sendMessageRouter)
-app.get('/',(req,res)=>{res.json("api working")})
+app.get('/',(req,res)=>{res.json("forhad frontend server running")})
 
 
 app.listen(port,()=>console.log('server started',port))
