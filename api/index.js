@@ -21,7 +21,7 @@ app.use(cors({origin:allowedOrigins,credentials:true}))
 
 
 //api endpoints
-app.use('api/contact',sendMessageRouter)
+app.use('/contact',sendMessageRouter)
 app.get('/',(req,res)=>{res.json("backend running in the index.js file")})
 
 
