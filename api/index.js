@@ -6,18 +6,13 @@ import serverless from 'serverless-http';
 import sendMessageRouter from '../routes/sendMessage.js';
 
 
-const allowedOrigins = [
-  'http://localhost:5173', 
+const allowedOrigins = [ 
   'https://forhad-portfolio-five.vercel.app'
 ];
 
 
-
-
-
 //app config
 const app = express()
-const port = process.env.PORT || 4000
 
 //middlewares
 app.use(express.json())
@@ -26,7 +21,7 @@ app.use(cors({origin:allowedOrigins,credentials:true}))
 
 
 //api endpoints
-app.use('/contact',sendMessageRouter)
+app.use('api/contact',sendMessageRouter)
 app.get('/',(req,res)=>{res.json("backend running in the index.js file")})
 
 
