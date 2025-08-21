@@ -6,10 +6,10 @@ import { contactEmailHTML, contactEmailTEXT } from './utils/emailTemplate.js';
 import { autoReplyHTML, autoReplyTEXT } from './utils/autoReplyTemplate.js';
 
 const allowedOrigins = [ 
-  'http://localhost:5173'
+  'https://forhad-portfolio.onrender.com'
 ];
 
-  const PORT = process.env.PORT || 5000;
+  const PORT = process.env.PORT || 4000;
 
 const app = express()
 
