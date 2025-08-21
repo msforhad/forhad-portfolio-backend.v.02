@@ -14,15 +14,34 @@ const allowedOrigins = [
 //app config
 const app = express()
 
-//middlewares
 app.use(express.json())
-app.use(cors({origin:allowedOrigins,credentials:true}))
+
+// ✅ CORS setup on vercel deploy
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps, curl, postman)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
+//middlewares
+
+// app.use(cors({origin:allowedOrigins,credentials:true}))
 
 
 
 //api endpoints
 app.use('api/contact',sendMessageRouter)
-app.get('api/',(req,res)=>{res.json("backend running in the index.js file")})
+app.get('api/',(req,res)=>{res.json("forhad portfolio backend server")})
 
 
 export const handler = serverless(app);
