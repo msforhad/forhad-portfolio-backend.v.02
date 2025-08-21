@@ -71,7 +71,7 @@ app.post('/api/contact/send-message',async(req,res)=>{
     
   }
 })
-app.get('/api', (req,res) => {
+app.get('/', (req,res) => {
   res.json("Forhad portfolio backend server running 🚀")
 })
 
