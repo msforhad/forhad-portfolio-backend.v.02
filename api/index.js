@@ -21,8 +21,8 @@ app.use(cors({origin:allowedOrigins,credentials:true}))
 
 
 //api endpoints
-app.use('/contact',sendMessageRouter)
-app.get('/',(req,res)=>{res.json("backend running in the index.js file")})
+app.use('api/contact',sendMessageRouter)
+app.get('api/',(req,res)=>{res.json("backend running in the index.js file")})
 
 
 export const handler = serverless(app);
